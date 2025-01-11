@@ -10,6 +10,7 @@ app_names=( "busyboxtest"
             "metube"
             "s-pdf/trainingData"
             "s-pdf/extraConfigs"
+            "openwebui"
             )
 
 # Create the DockerApps directory if it doesn't exist
