@@ -8,17 +8,17 @@ set -e # Exit immediately if a command exits with a non-zero status.
 docker_apps_dir="../DockerApps"
 app_names=( "busyboxtest"
             "metube"
-            "s-pdf/trainingData"
-            "s-pdf/extraConfigs"
+            "s-pdf/trainingData" "s-pdf/extraConfigs"
             "openwebui"
+            "calibre/config"
             )
 
 # Create the DockerApps directory if it doesn't exist
 if [ ! -d "$docker_apps_dir" ]; then
   mkdir -p "$docker_apps_dir"
   echo "Directory '$docker_apps_dir' created."
-else
-  echo "Directory '$docker_apps_dir' already exists."
+# else
+#   echo "Directory '$docker_apps_dir' already exists."
 fi
 
 # Create the app subdirectories within DockerApps
@@ -27,8 +27,8 @@ for app_name in "${app_names[@]}"; do
   if [ ! -d "$app_dir" ]; then
     mkdir -p "$app_dir"
     echo "Directory '$app_dir' created."
-  else
-    echo "Directory '$app_dir' already exists. Skipping."
+#   else
+#     echo "Directory '$app_dir' already exists. Skipping."
   fi
 done
 
