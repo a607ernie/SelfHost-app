@@ -11,6 +11,7 @@ app_names=( "busyboxtest"
             "s-pdf/trainingData" "s-pdf/extraConfigs"
             "openwebui"
             "calibre/config"
+            "kavita/comics" "kavita/books" "kavita/data"
             )
 
 # Create the DockerApps directory if it doesn't exist
