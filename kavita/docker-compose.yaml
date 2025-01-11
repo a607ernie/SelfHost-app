@@ -10,7 +10,9 @@ services:
             # - ./manga:/manga            # Manga is just an example you can have the name you want. See the following
             - ${DOCKER_APP_DIR}/kavita/comics:/comics          # Use as many as you want
             - ${DOCKER_APP_DIR}/kavita/books:/books            #
-            - ${DOCKER_APP_DIR}/calibre/config/books:/calibre_books
+            - ${DOCKER_APP_DIR}/calibre/config/books/other:/calibre_other
+            - ${DOCKER_APP_DIR}/calibre/config/books/finance:/calibre_finance
+            - ${DOCKER_APP_DIR}/calibre/config/books/tech:/calibre_tech
             - ${DOCKER_APP_DIR}/kavita/data:/kavita/config     # Change './data if you want to have the config files in a different place.
                                         # /kavita/config must not be changed
         # ports:
