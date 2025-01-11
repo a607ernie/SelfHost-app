@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+  drone:
+    image: drone/drone:latest
+    container_name: drone
+    volumes:
+      - /var/lib/drone:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - DRONE_GITHUB_CLIENT_ID=${DRONE_GITHUB_CLIENT_ID}
+      - DRONE_GITHUB_CLIENT_SECRET=${DRONE_GITHUB_CLIENT_SECRET}
+      - DRONE_RPC_SECRET=${DRONE_RPC_SECRET}
+      - DRONE_SERVER_HOST=${DRONE_SERVER_HOST}
+      - DRONE_SERVER_PROTO=http
+      - DRONE_SERVER_PROXY_HOST=${DRONE_SERVER_PROXY_HOST}
+      - DRONE_SERVER_PROXY_PROTO=https
+      - DRONE_COOKIE_TIMEOUT=720h
+      - DRONE_USER_CREATE=${DRONE_USER_CREATE}
+    # ports:
+    #   - 7000:80
+    restart: always
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+
+  drone-runner:
+    image: drone/drone-runner-docker:latest
+    container_name: drone-runner
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - DRONE_RPC_PROTO=https
+      - DRONE_RPC_HOST=${DRONE_RPC_HOST}
+      - DRONE_RPC_SECRET=${DRONE_RPC_SECRET}
+      - DRONE_RUNNER_CAPACITY=10
+      - DRONE_RUNNER_NAME=runner1
+    restart: always
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+networks:
+  default:
+    external: true
+    name: webproxy
