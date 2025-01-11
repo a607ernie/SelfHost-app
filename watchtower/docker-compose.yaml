@@ -1,0 +1,13 @@
+version: "3"
+services:
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - WATCHTOWER_SCHEDULE=0 0 3 * * * # 這裡表示每天凌晨3點檢查更新
+      - WATCHTOWER_CLEANUP=true
+      - TZ=Asia/Taipei  # 設置台北時區
+    restart: always  # 確保執行後會重新啟動
+    command: --label-enable

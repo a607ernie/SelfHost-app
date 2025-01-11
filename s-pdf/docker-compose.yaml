@@ -1,0 +1,25 @@
+version: '3.3'
+services:
+  stirling-pdf:
+    image: stirlingtools/stirling-pdf:latest
+    # ports:
+    #   - '8080'
+    environment:
+      - DOCKER_ENABLE_SECURITY=true
+      - SECURITY_ENABLE_LOGIN=true
+      - SECURITY_INITIALLOGIN_USERNAME=${s_pdf_SECURITY_INITIALLOGIN_USERNAME}
+      - SECURITY_INITIALLOGIN_PASSWORD=${s_pdf_SECURITY_INITIALLOGIN_PASSWORD}
+      - INSTALL_BOOK_AND_ADVANCED_HTML_OPS=false
+      - LANGS=zh_TW
+      - DOCKER_APP_DIR=${DOCKER_APP_DIR}
+    volumes:
+      - ${DOCKER_APP_DIR}/s-pdf/trainingData:/usr/share/tessdata # Required for extra OCR languages
+      - ${DOCKER_APP_DIR}/s-pdf/extraConfigs:/configs
+#      - ./customFiles:/customFiles/
+#      - ./logs:/logs/
+    labels: # for watchtower
+      - "com.centurylinklabs.watchtower.enable=true"
+networks:
+  default:
+    external: true
+    name: webproxy

@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  busybox:
+    image: busybox
+    container_name: busybox_container
+    environment:
+      - DOCKER_APP_DIR=${DOCKER_APP_DIR}
+      - PASSWORD=${PASSWORD}
+    command: tail -f /dev/null
+    volumes:
+      - ${DOCKER_APP_DIR}/busyboxtest:/app/test
+    tty: true
