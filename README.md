@@ -7,3 +7,4 @@
 3. use ```portainer``` to create stack
 4. add ```docker-compose.yaml``` to portainer
 5. add ```.env``` file
+
