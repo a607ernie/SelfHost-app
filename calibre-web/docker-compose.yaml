@@ -13,6 +13,6 @@ services:
     volumes:
       - ${DOCKER_APP_DIR}/calibre-web/data:/config
       - ${DOCKER_APP_DIR}/calibre/config/calibre 書庫:/books
-    # ports:
-    #   - 8083:8083
+    ports:
+      - 8083
     restart: unless-stopped
