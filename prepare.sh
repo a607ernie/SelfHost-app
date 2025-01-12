@@ -11,6 +11,7 @@ app_names=( "busyboxtest"
             "s-pdf/trainingData" "s-pdf/extraConfigs"
             "openwebui"
             "calibre/config"
+            "calibre-web/data"
             "kavita/comics" "kavita/books" "kavita/data"
             )
 
