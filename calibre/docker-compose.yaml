@@ -14,10 +14,10 @@ services:
       # - CUSTOM_PORT=8080
     volumes:
       - ${DOCKER_APP_DIR}/calibre/config:/config #calibre設定檔存放位置，可使用現有calibre書庫目錄
-    ports:
+    # ports:
       # - 8080:8080 #http通訊埠
-      - 8181 #https通訊埠
-      - 8081 #calibre內建伺服器通訊埠
+      # - 8181 #https通訊埠
+      # - 8081 #calibre內建伺服器通訊埠
     restart: unless-stopped
 
 networks:
