@@ -39,7 +39,7 @@ services:
     image: ghcr.io/browserless/chromium:latest
     restart: unless-stopped
     environment:
-      TIMEOUT: 10000
+      TIMEOUT: 60000
       CONCURRENT: 10
       TOKEN: chrome_token
       EXIT_ON_HEALTH_FAILURE: "true"
