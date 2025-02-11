@@ -17,6 +17,7 @@ services:
       - ${DOCKER_APP_DIR}/s-pdf/extraConfigs:/configs
 #      - ./customFiles:/customFiles/
 #      - ./logs:/logs/
+    restart: always
     labels: # for watchtower
       - "com.centurylinklabs.watchtower.enable=true"
 networks:
